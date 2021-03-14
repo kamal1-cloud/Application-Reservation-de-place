@@ -51,6 +51,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticationProvider(getProvider())
                 .formLogin()
                 .loginProcessingUrl("/login")
+                .usernameParameter("email")
                 .successHandler(new AuthentificationLoginSuccessHandler())
                 .failureHandler(new SimpleUrlAuthenticationFailureHandler())
                 .and()

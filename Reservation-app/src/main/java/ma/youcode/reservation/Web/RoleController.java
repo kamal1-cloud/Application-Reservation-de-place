@@ -15,10 +15,10 @@ public class RoleController {
     @Autowired
     private RoleRepository roleRepository;
 
-    @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
-    public String index(Model model){
-        List<RoleEntity> roles = roleRepository.findAll();
-        model.addAttribute("listRole", roles);
-        return "index";
-    }
+//    @RequestMapping(value = ("/index") , method = RequestMethod.GET)
+//    public String index(Model model){
+//        List<RoleEntity> roles = roleRepository.findAll();
+//        model.addAttribute("listRole", roles);
+//        return "index";
+//    }
 }

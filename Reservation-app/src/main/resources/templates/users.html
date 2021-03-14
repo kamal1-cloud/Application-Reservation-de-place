@@ -1,25 +1,53 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+
     <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <title>Users</title>
 </head>
 <body>
-
+<form th:action="@{/users}">
+    Filter: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
+    &nbsp;
+    <input type="submit" value="Search" />
+    &nbsp;
+    <input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
+</form>
 <table border="1">
     <thead>
     <tr>
         <th>ID</th>
         <th>Role Name</th>
+        <th>prenom</th>
+        <th>cin</th>
+        <th>currentdate</th>
+        <th>email</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="r:${listUsers}">
         <td th:text="${r.nom}"></td>
         <td th:text="${r.prenom}"></td>
+        <td th:text="${r.cin}"></td>
+        <td th:text="${r.currentdate}"></td>
+        <td th:text="${r.email}"></td>
+        <td><a th:href="@{/edit/{id}(id=${r.getIduser()})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
+        <td><a th:href="@{/delete/{id}(id=${r.getIduser()})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+        <td><a th:href="@{/delete/{id}(id=${r.getIduser()})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+        </td>
     </tr>
+    </tbody>
+    <tbody>
+
     </tbody>
 
 </table>
+
+<script type="text/javascript">
+    function clearSearch() {
+        window.location = "[[@{/users}]]";
+    }
+</script>
 </body>
 </html>
