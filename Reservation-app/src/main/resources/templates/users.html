@@ -1,13 +1,53 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head" />
 
-    <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <title>Users</title>
-</head>
 <body>
-<form th:action="@{/users}">
+<!-- Loader starts-->
+<div th:replace="fragments :: loader-wrapper"/>
+<!-- Loader ends-->
+<!-- page-wrapper Start-->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+    <div th:replace="fragments :: page-main-header"/>
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper horizontal-menu">
+        <!-- Page Sidebar Start-->
+        <header th:replace="fragments :: sidebar"/>
+
+        <!-- Page Sidebar Ends-->
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h3>Layout Light</h3>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="../ltr/index.html">Home</a></li>
+                                <li class="breadcrumb-item">Admin</li>
+                            </ol>
+                        </div>
+                        <div class="col-lg-6">
+                            <!-- Bookmark Start-->
+                            <div class="bookmark pull-right">
+                                <ul>
+                                    <li><a href="#"><i class="bookmark-search" data-feather="star"></i></a>
+                                        <form class="form-inline search-form">
+                                            <div class="form-group form-control-search">
+                                                <input type="text" placeholder="Search..">
+                                            </div>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Bookmark Ends-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid starts-->
+            <div class="container-fluid">
+  <form th:action="@{/users}">
     Filter: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
     &nbsp;
     <input type="submit" value="Search" />
@@ -38,16 +78,21 @@
         </td>
     </tr>
     </tbody>
-    <tbody>
-
-    </tbody>
 
 </table>
+            </div>
 
-<script type="text/javascript">
-    function clearSearch() {
-        window.location = "[[@{/users}]]";
-    }
-</script>
+            <!--     Container-fluid Ends-->
+            <!--   ==========================     -->
+        </div>
+        <!-- footer start-->
+        <footer th:replace="fragments :: footer"/>
+        <!-- footer Ends-->
+    </div>
+</div>
+
+<span th:replace="fragments :: js-scripts"/>
+
+
 </body>
 </html>

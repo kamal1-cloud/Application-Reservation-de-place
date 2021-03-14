@@ -16,9 +16,9 @@ public class ReservationApplication {
     //   apprenantRepository.save(new ApprenantEntity("Simo","Meguina","RR4655","amal@gmail.com","AZERTY",false));
 ////        roleRepository.save(new RoleEntity("Admin"));
     //   roleRepository.save(new RoleEntity("Apprenant"));
-        apprenantRepository.findAll().forEach(r -> {
-            System.out.println(r.getIdrole());
-        });
+//        apprenantRepository.findAll().forEach(r -> {
+//            System.out.println(r.getIdrole());
+//        });
     }
 
 }
