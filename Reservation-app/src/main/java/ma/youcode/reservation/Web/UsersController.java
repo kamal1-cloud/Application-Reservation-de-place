@@ -3,6 +3,7 @@ package ma.youcode.reservation.Web;
 import ma.youcode.reservation.DAO.ApprenantRepository;
 import ma.youcode.reservation.DAO.UsersRepository;
 import ma.youcode.reservation.Models.ApprenantEntity;
+import ma.youcode.reservation.Models.TypereservationEntity;
 import ma.youcode.reservation.Models.UsersEntity;
 import ma.youcode.reservation.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.persistence.Access;
 import javax.validation.Valid;
@@ -95,6 +97,10 @@ public class UsersController {
         return "redirect:/users";
     }
 
+
+
+
+
     @GetMapping("/delete/{id}")
     public String deleteUser(@PathVariable("id") long id, Model model) {
         UsersEntity user = usersRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
@@ -103,8 +109,5 @@ public class UsersController {
         return "redirect:/users";
 
     }
-
-
-
 
 }

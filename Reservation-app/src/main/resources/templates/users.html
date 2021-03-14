@@ -45,41 +45,50 @@
                     </div>
                 </div>
             </div>
+
             <!-- Container-fluid starts-->
             <div class="container-fluid">
-  <form th:action="@{/users}">
-    Filter: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
-    &nbsp;
-    <input type="submit" value="Search" />
-    &nbsp;
-    <input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
-</form>
-<table border="1">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Role Name</th>
-        <th>prenom</th>
-        <th>cin</th>
-        <th>currentdate</th>
-        <th>email</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="r:${listUsers}">
-        <td th:text="${r.nom}"></td>
-        <td th:text="${r.prenom}"></td>
-        <td th:text="${r.cin}"></td>
-        <td th:text="${r.currentdate}"></td>
-        <td th:text="${r.email}"></td>
-        <td><a th:href="@{/edit/{id}(id=${r.getIduser()})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
-        <td><a th:href="@{/delete/{id}(id=${r.getIduser()})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
-        <td><a th:href="@{/delete/{id}(id=${r.getIduser()})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
-        </td>
-    </tr>
-    </tbody>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header m-b-20">
+                                <h5>Type de Réeservation</h5>
+                            </div>
 
-</table>
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Nom</th>
+                                                <th>Prénom</th>
+                                                <th>CIN</th>
+                                                <th>email</th>
+                                                <th>Modifier</th>
+                                                <th>Supprimer</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr th:each="r:${listUsers}">
+                                                <td th:text="${r.iduser}"></td>
+                                                <td th:text="${r.nom}"></td>
+                                                <td th:text="${r.prenom}"></td>
+                                                <td th:text="${r.cin}"></td>
+                                                <td th:text="${r.email}"></td>
+                                                <td><a th:href="@{/edit/{id}(id=${r.getIduser()})}" class="btn btn-primary"><i class="icon-reload"></i></a></td>
+                                                <td><a th:href="@{/delete/{id}(id=${r.getIduser()})}" class="btn btn-primary"><i class="icon-trash"></i></a></td>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!--     Container-fluid Ends-->

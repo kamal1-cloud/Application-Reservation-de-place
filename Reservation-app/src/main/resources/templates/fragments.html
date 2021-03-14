@@ -53,16 +53,17 @@
     <div class="main-header-right row m-0">
 
         <div class="main-header-left">
-            <div class="logo-wrapper"><a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo.png" alt=""></a></div>
+            <div class="logo-wrapper"><a href="@{/index}"><img class="img-fluid" src="../assets/images/logo/logo.png" alt=""></a></div>
         </div>
         <div class="toggle-sidebar"><i class="status_toggle middle" data-feather="grid" id="sidebar-toggle"></i></div>
         <div class="left-menu-header col">
             <ul>
                 <li>
-                    <form class="form-inline search-form">
+                    <form class="form-inline search-form" th:action="@{/users}">
                         <div class="search-bg"><i class="fa fa-search"></i></div>
-                        <input class="form-control-plaintext" placeholder="Search here.....">
-                    </form><span class="d-sm-none mobile-search search-bg"><i class="fa fa-search"></i></span>
+                        <input class="form-control-plaintext" name="keyword" id="keyword"  placeholder="Search here.....">
+                    </form>
+                    <span class="d-sm-none mobile-search search-bg"><i class="fa fa-search"></i></span>
                 </li>
             </ul>
         </div>
@@ -72,7 +73,7 @@
                 <li><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize"></i></a></li>
                 <li class="onhover-dropdown p-0">
                     <div class="media profile-media"><img class="b-r-10" src="../assets/images/dashboard/Profile.jpg" alt="">
-                        <div class="media-body"><span>Emay Walter</span>
+                        <div class="media-body"><span>Kamal</span>
                             <p class="mb-0 font-roboto">Admin <i class="middle fa fa-angle-down"></i></p>
                         </div>
                     </div>
@@ -98,7 +99,7 @@
 <!-- Page Sidebar Start-->
 <header class="main-nav" th:fragment="sidebar">
     <div class="logo-wrapper"><a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo.png" alt=""></a></div>
-    <div class="logo-icon-wrapper"><a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo-icon.png" alt=""></a></div>
+    <div class="logo-icon-wrapper"><a th:href="@{/index}"><img class="img-fluid" src="../assets/images/logo/logo-icon.png" alt=""></a></div>
     <nav>
         <div class="main-navbar">
             <div id="mainnav">
@@ -107,22 +108,34 @@
                         <div class="mobile-back text-right"><span>Back</span><i class="fa fa-angle-right pl-2" aria-hidden="true"></i></div>
                     </li>
                     <li class="dropdown">
-                        <a class="nav-link menu-title" href="" target="">
+                        <a class="nav-link menu-title" th:href="@{/index}" target="">
                             <i data-feather="home">
                             </i><span>Dashboard</span></a>
                     </li>
-                    <li class="dropdown"><a class="nav-link menu-title" href="#"><i data-feather="anchor"></i><span>Réservations</span></a>
+                    <li class="dropdown"><a class="nav-link menu-title" href="#"><i data-feather="anchor"></i><span>Gestion des Utilisateurs</span></a>
                         <ul class="nav-submenu menu-content">
-                            <li><a class="submenu-title" href="#">Catégories<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span></a></li>
-                            <li><a class="submenu-title" href="">Les Réservation des Apprenants<span class="sub-arrow"><li class="fa fa-chevron-right"></li>
+
+                            <li><a class="submenu-title" th:href="@{/users}"> List Utilisateurs<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span></a></li>
+                            <li><a class="submenu-title" href="#"> Ajouter Type<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span></a></li>
+                            <li><a class="submenu-title" href="#"> Modifier<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span></a></li>
+                            </span>
+                            </a>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a class="nav-link menu-title" href="#"><i data-feather="anchor"></i><span>Type de Réservations</span></a>
+                        <ul class="nav-submenu menu-content">
+
+                            <li><a class="submenu-title" th:href="@{/Type/reservation}"> List Type<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span></a></li>
+                            <li><a class="submenu-title" th:href="@{/save/type}"> Ajouter Type<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span></a></li>
                           </span>
                                 </a>
 
                             </li>
-                            <li><a class="submenu-title" href="hide-on-scroll.html"><span>Hide menu on Scroll</span></a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a class="nav-link menu-title" href="" target=""><i data-feather="headphones"></i><span>Raise Support</span></a></li>
+                    <li class="dropdown"><a class="nav-link menu-title" href="" target=""><i data-feather="headphones"></i><span>Réservation</span></a></li>
                     <li class="dropdown"><a class="nav-link menu-title" href="" target=""><i data-feather="file-text"></i><span>Documentation                                    </span></a></li>
                 </ul>
             </div>
