@@ -16,7 +16,7 @@ CREATE TABLE Users
     cin varchar(10) NOT NULL,
     email varchar(100) NOT NULL,
     password varchar(255) NOT NULL,
-    currentdate timestamp,
+    currentdate timestamp ,
     idRole bigint,
     PRIMARY KEY (idUser),
 	FOREIGN KEY(idRole) REFERENCES Role(idRole) ON UPDATE CASCADE
