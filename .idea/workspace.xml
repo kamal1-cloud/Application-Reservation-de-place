@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c11bd2ce-7049-4d04-8389-eb4760c210b6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/DAO/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/DAO/RoleRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/DAO/UsersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/DAO/UsersRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Models/UsersEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Models/UsersEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Web/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Web/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Web/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Web/RoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Web/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Web/UsersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/securingweb/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/securingweb/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/resources/templates/signup_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/resources/templates/signup_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/resources/templates/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/resources/templates/users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Web/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Web/LoginController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +28,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Reservation-app" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -41,6 +44,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615720399295</updated>
       <workItem from="1615720402292" duration="46000" />
+      <workItem from="1615763638384" duration="600000" />
     </task>
     <servers />
   </component>

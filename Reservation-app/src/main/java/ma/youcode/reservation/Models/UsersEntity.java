@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "users",uniqueConstraints = @UniqueConstraint(columnNames = "email"))
@@ -185,7 +186,6 @@ public class UsersEntity implements Serializable {
     public void setRoleByIdrole(RoleEntity roleByIdrole) {
         this.roleByIdrole = roleByIdrole;
     }
-
 
 
 //    private Collection<RoleEntity> roles;
