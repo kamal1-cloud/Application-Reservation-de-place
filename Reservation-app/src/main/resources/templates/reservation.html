@@ -47,28 +47,51 @@
             </div>
             <!-- Container-fluid starts-->
             <div class="container-fluid">
-                        <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header m-b-20">
+                                <h5>Les Réservations</h5>
+                            </div>
 
-                            <h5 class="mb-3" >Ajouter une type</h5>
-                            <form class="needs-validation" th:action="@{/saveType}" th:object="${typereservationEntity}" method="post">
-                                <div class="row">
-                                    <div class="col-md-4 mb-3">
-                                        <label for="validationCustom01">Nom de Type</label>
-                                        <input class="form-control" id="validationCustom01" type="text" th:field="*{typenom}"  placeholder="Nom" required="">
-                                        <div class="valid-feedback">Looks good!</div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label for="validationCustom02">Nombre de places</label>
-                                        <input class="form-control" id="validationCustom02" type="number" th:field="*{nombredeplace}"  placeholder="Nombre" required="">
-                                        <div class="valid-feedback">Looks good!</div>
+                            <div class="col-sm-12">
+
+
+<!--                                <select th:field="*{listTypes}">-->
+<!--                                    <option th:each="type: ${listTypes}"-->
+<!--                                            th:value="${type.idtype}"-->
+<!--                                            th:text="#{${'selected.label.' + type.typenom}}"/>-->
+<!--                                </select>-->
+                                <div class="card">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">ID Reservation</th>
+                                                <th scope="col">Date de reservation</th>
+                                                <th scope="col">Accepter</th>
+                                                <th scope="col">Supprimer</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr th:each="r:${listReservation}">
+                                                <td th:text="${r.idreservation}"></td>
+                                                <td th:text="${r.currentdate}"></td>
+                                                <td><a th:href="@{/edit-reservation/(id=${r.getIdreservation()})}" class="btn btn-primary" th:if="${r.status} == false" th:text="Accepter"></a></td>
+                                                <td><a th:href="@{/delete-reservation/{id}(id=${r.getIdreservation()})}" class="btn btn-primary"><i class="icon-trash"></i></a></td>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
-                                <button class="btn btn-primary" type="submit">Ajouter</button>
-                            </form>
-
+                            </div>
                         </div>
-
+                    </div>
+                </div>
             </div>
+
+            <!--     Container-fluid Ends-->
 
             <!--     Container-fluid Ends-->
             <!--   ==========================     -->
@@ -80,6 +103,7 @@
 </div>
 
 <span th:replace="fragments :: js-scripts"/>
+
 
 </body>
 </html>

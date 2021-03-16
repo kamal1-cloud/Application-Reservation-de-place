@@ -10,7 +10,7 @@ public class RoleEntity implements Serializable {
     private Long id;
     private int idrole;
     private String rolenom;
-    private Collection<UsersEntity> usersByIdrole;
+    private Collection<UsersEntity> usersByRole;
 
 
 
@@ -55,12 +55,12 @@ public class RoleEntity implements Serializable {
         return result;
     }
 
-    @OneToMany(mappedBy = "roleByIdrole")
-    public Collection<UsersEntity> getUsersByIdrole() {
-        return usersByIdrole;
+    @OneToMany(mappedBy = "role")
+    public Collection<UsersEntity> getUsersByRole() {
+        return getUsersByRole();
     }
 
-    public void setUsersByIdrole(Collection<UsersEntity> usersByIdrole) {
-        this.usersByIdrole = usersByIdrole;
+    public void setUsersByRole(Collection<UsersEntity> usersByRole) {
+        this.usersByRole = usersByRole;
     }
 }

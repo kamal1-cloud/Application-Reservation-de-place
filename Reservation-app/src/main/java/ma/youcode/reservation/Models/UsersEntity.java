@@ -25,7 +25,8 @@ public class UsersEntity implements Serializable {
     private Long idrole;
     private Collection<ApprenantEntity> apprenantsByIduser;
     private Collection<ReservationEntity> reservationsByIduser;
-    private RoleEntity roleByIdrole;
+   // private RoleEntity roleByIdrole;
+    private RoleEntity role;
 
 
     public UsersEntity(String nom, String prenom, String cin, String email, String password, Long idrole) {
@@ -118,6 +119,7 @@ public class UsersEntity implements Serializable {
 
     @Basic
     @Column(name = "idRole", insertable = false)
+
     public Long getIdrole() {
         return idrole;
     }
@@ -177,15 +179,22 @@ public class UsersEntity implements Serializable {
         this.reservationsByIduser = reservationsByIduser;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "idRole", referencedColumnName = "idRole", insertable = false, updatable = false)
-    public RoleEntity getRoleByIdrole() {
-        return roleByIdrole;
+    public RoleEntity getRole() {
+        return role;
     }
 
-    public void setRoleByIdrole(RoleEntity roleByIdrole) {
-        this.roleByIdrole = roleByIdrole;
+    public void setRole(RoleEntity role) {
+        this.role = role;
     }
+//    public RoleEntity getRoleByIdrole() {
+//        return roleByIdrole;
+//    }
+//
+//    public void setRoleByIdrole(RoleEntity roleByIdrole) {
+//        this.roleByIdrole = roleByIdrole;
+//    }
 
 
 //    private Collection<RoleEntity> roles;

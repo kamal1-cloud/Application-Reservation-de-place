@@ -28,18 +28,39 @@ public class TypeReservationController {
         model.addAttribute("listTypes", listTypes);
         return "reservation-type";
     }
+//=======================
+@GetMapping("/showNewTypeForm")
+public String showNewTypeForm(Model model) {
+    // create model attribute to bind form data
+    TypereservationEntity typereservationEntity = new TypereservationEntity();
+    model.addAttribute("typereservationEntity", typereservationEntity);
+    return "new_type";
+}
 
-    @RequestMapping("/new-type")
-    public String showNewTypeForm(Model model) {
-        TypereservationEntity type = new TypereservationEntity();
-        model.addAttribute("type", type);
-
-        return "new_type";
+    @PostMapping("/saveType")
+    public String saveEmployee(@ModelAttribute("typereservationEntity") TypereservationEntity typereservationEntity) {
+        // save type to database
+        service.save(typereservationEntity);
+        return "redirect:/reservation-type";
     }
-
+//    =====================
+//    @RequestMapping("/new-type")
+//    public String showNewTypeForm(Model model) {
+//        model.addAttribute("type", new TypereservationEntity());
+//        return "new_type";
+//    }
+//
+//
+//    @RequestMapping(value = "/save-type")
+//    public String saveType(@ModelAttribute("type") TypereservationEntity types) {
+//
+//        service.save(types);
+//
+//        return "redirect:/reservation-type";
+//    }
 
     @RequestMapping("/edit/{id}")
-    public ModelAndView showEditProductForm(@PathVariable(name = "id") Long id) {
+    public ModelAndView showEditTypeForm(@PathVariable(name = "id") Long id) {
         ModelAndView mav = new ModelAndView("update-type");
 
         TypereservationEntity type = service.get(id);
@@ -48,13 +69,6 @@ public class TypeReservationController {
         return mav;
     }
 
-    @RequestMapping(value = "/save/type")
-    public String saveType(@ModelAttribute("types") TypereservationEntity types) {
-
-        service.save(types);
-
-        return "redirect:/reservation-type";
-    }
 
     @RequestMapping("/delete/{id}")
     public String deleteType(@PathVariable(name = "id") Long id) {

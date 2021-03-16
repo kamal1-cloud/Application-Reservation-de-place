@@ -11,8 +11,8 @@ public class TypeReservationService {
     @Autowired
     private TypeReservationRepository typeReservationRepository;
 
-    public void save(TypereservationEntity type) {
-        typeReservationRepository.save(type);
+    public void save(TypereservationEntity typereservationEntity) {
+        typeReservationRepository.save(typereservationEntity);
     }
     public void delete(Long id) {
         typeReservationRepository.deleteById(id);
