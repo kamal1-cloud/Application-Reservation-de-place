@@ -42,7 +42,6 @@ public class UsersController {
         List<UsersEntity> listUsers = service.listAll(keyword);
         model.addAttribute("listUsers", listUsers);
         model.addAttribute("keyword", keyword);
-
         return "users";
     }
 

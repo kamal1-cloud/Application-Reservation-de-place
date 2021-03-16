@@ -11,13 +11,13 @@ import java.util.List;
 
 @Repository
 public interface ApprenantRepository extends JpaRepository<ApprenantEntity, Long> {
-//    //Apprenant Non accepter
-//    @Query("SELECT a FROM ApprenantEntity a WHERE a.status = false")
-//    List<ApprenantEntity> getUsersEntityByStatusFalse();
-//
-//    //Apprenants Accepter
-//    @Query("SELECT a FROM ApprenantEntity a WHERE a.status = true")
-//    List<ApprenantEntity> getUsersEntityByStatusTrue();
+    //Apprenant Non accepter
+    @Query("SELECT a FROM ApprenantEntity a WHERE a.status = false")
+    List<ApprenantEntity> getUsersEntityByStatusFalse();
+
+    //Apprenants Accepter
+    @Query("SELECT a FROM ApprenantEntity a WHERE a.status = true")
+    List<ApprenantEntity> getUsersEntityByStatusTrue();
 
     //Search
 
