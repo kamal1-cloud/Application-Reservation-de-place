@@ -5,6 +5,7 @@ import ma.youcode.reservation.Models.ReservationEntity;
 import ma.youcode.reservation.Models.TypereservationEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class ReservationServices {
     public List<ReservationEntity> getReservationEntityByStatus(){
         return reservationRepository.getReservationEntityByStatus();
     }
+
     public void updateStatus(Long id){
         reservationRepository.updateReservationSetStatus(id);
     }

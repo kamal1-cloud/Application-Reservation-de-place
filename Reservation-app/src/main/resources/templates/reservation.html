@@ -77,7 +77,7 @@
                                             <tr th:each="r:${listReservation}">
                                                 <td th:text="${r.idreservation}"></td>
                                                 <td th:text="${r.currentdate}"></td>
-                                                <td><a th:href="@{/edit-reservation/(id=${r.getIdreservation()})}" class="btn btn-primary" th:if="${r.status} == false" th:text="Accepter"></a></td>
+                                                <td><a th:href="@{/edit-reservation/{id}(id=${r.getIdreservation()})}" class="btn btn-primary" th:if="${r.status} == false" th:text="Accepter"></a></td>
                                                 <td><a th:href="@{/delete-reservation/{id}(id=${r.getIdreservation()})}" class="btn btn-primary"><i class="icon-trash"></i></a></td>
                                                 </td>
                                             </tr>

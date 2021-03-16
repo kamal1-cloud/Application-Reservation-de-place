@@ -37,7 +37,7 @@ public String showNewTypeForm(Model model) {
     return "new_type";
 }
 
-    @PostMapping("/saveType")
+    @PostMapping(path = "/saveType")
     public String saveEmployee(@ModelAttribute("typereservationEntity") TypereservationEntity typereservationEntity) {
         // save type to database
         service.save(typereservationEntity);

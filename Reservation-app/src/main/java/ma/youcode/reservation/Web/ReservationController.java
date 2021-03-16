@@ -55,8 +55,9 @@ public class ReservationController {
 
     @RequestMapping("/edit-reservation/{id}")
     public String editStatus(@PathVariable(name = "id") Long id) {
-        reservationRepository.findById(id);
-      reservationServices.updateStatus(id);
+        if (id != null){
+            reservationServices.updateStatus(id);
+        }
 
         return "redirect:/reservation";
     }

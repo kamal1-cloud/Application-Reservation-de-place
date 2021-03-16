@@ -1,5 +1,6 @@
 package ma.youcode.reservation.DAO;
 
+import ma.youcode.reservation.Models.ReservationEntity;
 import ma.youcode.reservation.Models.UsersEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -18,4 +19,5 @@ public interface UsersRepository extends JpaRepository<UsersEntity, Long> {
 
     @Query("SELECT u FROM UsersEntity u WHERE CONCAT(u.nom, ' ', u.prenom, ' ', u.cin, ' ', u.email) LIKE %?1%")
     public List<UsersEntity> search(String keyword);
+
 }

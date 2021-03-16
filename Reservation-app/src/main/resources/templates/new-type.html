@@ -47,26 +47,7 @@
             </div>
             <!-- Container-fluid starts-->
             <div class="container-fluid">
-                        <div class="card-body">
 
-                            <h5 class="mb-3" >Ajouter une type</h5>
-                            <form class="needs-validation" th:action="@{/saveType}" th:object="${typereservationEntity}" method="post">
-                                <div class="row">
-                                    <div class="col-md-4 mb-3">
-                                        <label for="validationCustom01">Nom de Type</label>
-                                        <input class="form-control" id="validationCustom01" type="text" th:field="*{typenom}"  placeholder="Nom" required="">
-                                        <div class="valid-feedback">Looks good!</div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label for="validationCustom02">Nombre de places</label>
-                                        <input class="form-control" id="validationCustom02" type="number" th:field="*{nombredeplace}"  placeholder="Nombre" required="">
-                                        <div class="valid-feedback">Looks good!</div>
-                                    </div>
-                                </div>
-                                <button class="btn btn-primary" type="submit">Ajouter</button>
-                            </form>
-
-                        </div>
 
             </div>
 
@@ -80,6 +61,7 @@
 </div>
 
 <span th:replace="fragments :: js-scripts"/>
+
 
 </body>
 </html>

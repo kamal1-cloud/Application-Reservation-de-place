@@ -1,6 +1,7 @@
 package ma.youcode.reservation;
 
 import ma.youcode.reservation.DAO.ApprenantRepository;
+import ma.youcode.reservation.DAO.ReservationRepository;
 import ma.youcode.reservation.DAO.UsersRepository;
 import ma.youcode.reservation.Models.ApprenantEntity;
 import org.springframework.boot.SpringApplication;
@@ -12,13 +13,14 @@ public class ReservationApplication {
 
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(ReservationApplication.class, args);
-        ApprenantRepository apprenantRepository= ctx.getBean(ApprenantRepository.class);
+        ReservationRepository reservationRepository= ctx.getBean(ReservationRepository.class);
+       reservationRepository.updateReservationSetStatus(2L);
     //   apprenantRepository.save(new ApprenantEntity("Simo","Meguina","RR4655","amal@gmail.com","AZERTY",false));
 ////        roleRepository.save(new RoleEntity("Admin"));
     //   roleRepository.save(new RoleEntity("Apprenant"));
-//        apprenantRepository.findAll().forEach(r -> {
-//            System.out.println(r.getIdrole());
-//        });
+        reservationRepository.getReservationEntityByStatus().forEach(r -> {
+            System.out.println(r.getIduser() +" "+ r.getStatus());
+        });
     }
 
 }
