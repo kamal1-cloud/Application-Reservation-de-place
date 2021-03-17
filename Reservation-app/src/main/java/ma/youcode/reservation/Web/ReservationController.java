@@ -33,6 +33,7 @@ public class ReservationController {
         model.addAttribute("listReservation", listReservation);
         return "reservation";
     }
+
     @RequestMapping("/new-reservation")
     public String showNewTypeForm(Model model) {
         ReservationEntity type = new ReservationEntity();

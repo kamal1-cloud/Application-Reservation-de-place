@@ -47,45 +47,33 @@
             </div>
             <!-- Container-fluid starts-->
             <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-12">
-                          <div class="card">
-                                <div class="card-header m-b-20">
-                                    <h5>Type de Réeservation</h5>
-                                </div>
-
-                                <div class="col-sm-12">
-                                    <div class="card">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                <tr>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">Type Nom</th>
-                                                    <th scope="col">Nombre de Places</th>
-                                                    <th scope="col">Modifier</th>
-                                                    <th scope="col">Supprimer</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr th:each="t:${listTypes}">
-                                                    <td th:text="${t.idtype}"></td>
-                                                    <td th:text="${t.typenom}"></td>
-                                                    <td th:text="${t.nombredeplace}"></td>
-                                                    <td><a th:href="@{/edit/{id}(id=${t.getIdtype()})}" class="btn btn-primary"><i class="icon-reload"></i></i></a></td>
-                                                    <td><a th:href="@{/deleteType/{id}(id=${t.getIdtype()})}" class="btn btn-primary"><i class="icon-trash"></i></a></td>
-                                                    </td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header m-b-20">
+                                <h5>Ajouter Un type</h5>
                             </div>
+                            <div class="card-body">
+                                <form class="theme-form" th:action="@{/ajouterType}"  th:object="${type}" method="post">
+                                    <div class="form-group">
+                                        <label class="col-form-label pt-0">Type Nom</label>
+                                        <input class="form-control" th:field="*{typenom}"  type="test"  placeholder="Enter le Nom">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Nombre de places</label>
+                                        <input class="form-control" type="number" th:field="*{nombredeplace}" placeholder="Nombre de Place">
+                                    </div>
+                                    <div class="card-footer">
+                                        <button class="btn btn-primary">Ajouter</button>
+                                    </div>
+                                </form>
+                            </div>
+
                         </div>
                     </div>
-            </div>
+                </div>
 
+            </div>
             <!--     Container-fluid Ends-->
             <!--   ==========================     -->
         </div>

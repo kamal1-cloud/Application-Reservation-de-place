@@ -10,6 +10,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class AppAuthProvider extends DaoAuthenticationProvider {
+
     @Autowired
     UserService userDetailsService;
 

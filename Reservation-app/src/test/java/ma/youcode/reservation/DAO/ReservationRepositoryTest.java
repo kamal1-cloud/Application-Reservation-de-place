@@ -17,13 +17,13 @@ class ReservationRepositoryTest {
     @Autowired
     ReservationRepository reservationRepository;
 
-    @Test
-    void getReservationEntityByStatus() {
-
-        List<ReservationEntity> reservationEntities = reservationRepository.getReservationEntityByStatus();
-        assertNotNull(reservationEntities);
-
-    }
+//    @Test
+//    void getReservationEntityByStatus() {
+//
+//        List<ReservationEntity> reservationEntities = reservationRepository.getReservationEntityByStatus();
+//        assertNotNull(reservationEntities);
+//
+//    }
 
     @Test
     void updateReservationSetStatus() {

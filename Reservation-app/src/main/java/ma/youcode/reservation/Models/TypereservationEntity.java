@@ -4,13 +4,20 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name = "typereservation", schema = "public", catalog = "reservationDb")
+@Table(name = "typereservation")
 public class TypereservationEntity {
-    private Long id;
     private int idtype;
     private String typenom;
     private Integer nombredeplace;
     private Collection<ReservationEntity> reservationsByIdtype;
+
+    public TypereservationEntity(String typenom, Integer nombredeplace) {
+        this.typenom = typenom;
+        this.nombredeplace = nombredeplace;
+    }
+
+    public TypereservationEntity() {
+    }
 
     @Id
     @GeneratedValue

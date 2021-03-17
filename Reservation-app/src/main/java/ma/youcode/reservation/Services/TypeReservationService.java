@@ -11,13 +11,13 @@ public class TypeReservationService {
     @Autowired
     private TypeReservationRepository typeReservationRepository;
 
-    public void save(TypereservationEntity typereservationEntity) {
+    public void saveType(TypereservationEntity typereservationEntity) {
         typeReservationRepository.save(typereservationEntity);
     }
-    public void delete(Long id) {
+    public void deleteType(Integer id) {
         typeReservationRepository.deleteById(id);
     }
-    public TypereservationEntity get(Long id) {
+    public TypereservationEntity get(Integer id) {
         return typeReservationRepository.findById(id).get();
     }
 
