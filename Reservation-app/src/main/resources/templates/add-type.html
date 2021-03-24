@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/index">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- Container-fluid starts-->
+<div class="container-fluid" layout:fragment="content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Basic form control</h5>
+                </div>
+                <form class="form theme-form" th:action="@{/ajouterType}"  th:object="${type}"  method="post">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Nom de Type</label>
+                                    <input class="form-control"  type="text" th:field="*{typenom}"  placeholder="Entrer le Nom">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword2">Nombre de places</label>
+                                    <input class="form-control" id="exampleInputPassword2" type="number" th:field="*{nombredeplace}" placeholder="Entrer le Nombre de place">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Container-fluid Ends-->
+</body>
+</html>

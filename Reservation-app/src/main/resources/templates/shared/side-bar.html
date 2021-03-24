@@ -1,0 +1,44 @@
+<header class="main-nav">
+    <div class="logo-wrapper"><a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo.png" alt=""></a></div>
+    <div class="logo-icon-wrapper"><a th:href="@{/index}"><img class="img-fluid" src="../assets/images/logo/logo-icon.png" alt=""></a></div>
+    <nav>
+        <div class="main-navbar">
+            <div id="mainnav">
+                <ul class="nav-menu custom-scrollbar">
+                    <li class="back-btn">
+                        <div class="mobile-back text-right"><span>Back</span><i class="fa fa-angle-right pl-2" aria-hidden="true"></i></div>
+                    </li>
+                    <li class="dropdown">
+                        <a class="nav-link menu-title" th:href="@{/index}" target="">
+                            <i data-feather="home">
+                            </i><span>Dashboard</span></a>
+                    </li>
+                    <li class="dropdown"><a class="nav-link menu-title" href="#"><i data-feather="anchor"></i><span>Gestion des Utilisateurs</span></a>
+                        <ul class="nav-submenu menu-content">
+
+                            <li><a class="submenu-title" th:href="@{/users}"> List Utilisateurs<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span></a></li>
+                            <li><a class="submenu-title" href="#">Utilisateurs Non Accepter<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span></a></li>
+                            </span>
+                            </a>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a class="nav-link menu-title" href="#"><i data-feather="anchor"></i><span>Type de Réservations</span></a>
+                        <ul class="nav-submenu menu-content">
+
+                            <li><a class="submenu-title" th:href="@{/Type/reservation}"> List Type<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span></a></li>
+                            <li><a class="submenu-title" th:href="@{/formType}"> Ajouter Type<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span></a></li>
+                            </span>
+                            </a>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a class="nav-link menu-title" th:href="@{/reservation}" target=""><i data-feather="headphones"></i><span>Réservation</span></a></li>
+                    <li class="dropdown"><a class="nav-link menu-title" th:href="@{/AjouterReservation}" target=""><i data-feather="file-text"></i><span>Documentation</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

@@ -12,8 +12,13 @@ import java.util.List;
 @Repository
 public interface ApprenantRepository extends JpaRepository<ApprenantEntity, Long> {
     //Apprenant Non accepter
-    @Query("SELECT a FROM ApprenantEntity a WHERE a.status = false")
+  //  @Query("SELECT * FROM ApprenantEntity a left join UsersEntity u On a.iduser= u.iduser ")
     List<ApprenantEntity> getUsersEntityByStatusFalse();
+
+//    =========================
+
+
+//    ========================
 
     //Apprenants Accepter
     @Query("SELECT a FROM ApprenantEntity a WHERE a.status = true")

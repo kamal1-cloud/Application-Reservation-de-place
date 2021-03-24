@@ -188,22 +188,5 @@ public class UsersEntity implements Serializable {
     public void setRole(RoleEntity role) {
         this.role = role;
     }
-//    public RoleEntity getRoleByIdrole() {
-//        return roleByIdrole;
-//    }
-//
-//    public void setRoleByIdrole(RoleEntity roleByIdrole) {
-//        this.roleByIdrole = roleByIdrole;
-//    }
-
-
-//    private Collection<RoleEntity> roles;
-//    public Collection<RoleEntity> getRoles() {
-//        return roles;
-//    }
-//
-//    public void setRoles(Collection<RoleEntity> roles) {
-//        this.roles = roles;
-//    }
 
 }

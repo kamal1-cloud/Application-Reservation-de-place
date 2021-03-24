@@ -12,7 +12,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -34,24 +33,25 @@ public class TypeReservationController {
     public String showNewTypeForm(Model model) {
         // create model attribute to bind form data
         model.addAttribute("type", new TypereservationEntity());
-        return "newType";
+        return "add-type";
     }
+
     @PostMapping( "/ajouterType")
     public String saveType(@ModelAttribute("type") TypereservationEntity type) {
         // save type to database
         service.saveType(type);
-        return "redirect:/reservation-type";
+        return "redirect:/Type/reservation";
     }
 //    =====================
 
-    @RequestMapping("/edit/{id}")
-    public ModelAndView showEditTypeForm(@PathVariable(name = "id") Integer id) {
-        ModelAndView mav = new ModelAndView("update-type");
-
+    @RequestMapping("/updateType/{id}")
+    public String showEditTypeForm(@PathVariable(name = "id") Integer id , Model model) {
+     // get type from the service
         TypereservationEntity type = service.get(id);
-        mav.addObject("type", type);
+        // set type as a model attribute to pre-populate the form
+        model.addAttribute("type", type);
 
-        return mav;
+        return "update-type";
     }
 
 

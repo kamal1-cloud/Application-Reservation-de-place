@@ -2,6 +2,7 @@ package ma.youcode.reservation.Services;
 
 import ma.youcode.reservation.DAO.RoleRepository;
 import ma.youcode.reservation.DAO.UsersRepository;
+import ma.youcode.reservation.DTO.UserApprenantDto;
 import ma.youcode.reservation.Models.RoleEntity;
 import ma.youcode.reservation.Models.UsersEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,16 @@ public class UserService {
     @Autowired
     private RoleRepository roleRepository;
 
-
+//    private UserApprenantDto convertToUserLocationDTO(UsersEntity user) {
+//        UserApprenantDto userApprenantDto = new UserApprenantDto;
+//        userApprenantDto.setIduser(user.getIduser());
+//        userApprenantDto.setNom(user.getNom());
+//        Location location = user.getLocation();
+//        userApprenantDto.setLat(location.getLat());
+//        userApprenantDto.setLng(location.getLng());
+//        userApprenantDto.setPlace(location.getPlace());
+//        return userApprenantDto;
+//    }
 //
 //    public UsersEntity findUserByEmail(String email) {
 //        return userRepository.findByEmail(email);
@@ -84,4 +94,5 @@ public class UserService {
         }
         return user;
     }
+
 }

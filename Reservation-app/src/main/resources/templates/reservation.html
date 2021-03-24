@@ -1,109 +1,58 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments :: head" />
-
-<body>
-<!-- Loader starts-->
-<div th:replace="fragments :: loader-wrapper"/>
-<!-- Loader ends-->
-<!-- page-wrapper Start-->
-<div class="page-wrapper compact-wrapper" id="pageWrapper">
-
-    <div th:replace="fragments :: page-main-header"/>
-    <!-- Page Body Start-->
-    <div class="page-body-wrapper horizontal-menu">
-        <!-- Page Sidebar Start-->
-        <header th:replace="fragments :: sidebar"/>
-
-        <!-- Page Sidebar Ends-->
-        <div class="page-body">
-            <div class="container-fluid">
-                <div class="page-header">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <h3>Layout Light</h3>
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="../ltr/index.html">Home</a></li>
-                                <li class="breadcrumb-item">Admin</li>
-                            </ol>
-                        </div>
-                        <div class="col-lg-6">
-                            <!-- Bookmark Start-->
-                            <div class="bookmark pull-right">
-                                <ul>
-                                    <li><a href="#"><i class="bookmark-search" data-feather="star"></i></a>
-                                        <form class="form-inline search-form">
-                                            <div class="form-group form-control-search">
-                                                <input type="text" placeholder="Search..">
-                                            </div>
-                                        </form>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- Bookmark Ends-->
-                        </div>
+    <!DOCTYPE html>
+    <html lang="en" xmlns:th="http://www.thymeleaf.org"
+          xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+          layout:decorator="/index">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+    <!-- Container-fluid starts-->
+    <div class="container-fluid" layout:fragment="content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header m-b-20">
+                        <h5>Les Réservations</h5>
                     </div>
-                </div>
-            </div>
-            <!-- Container-fluid starts-->
-            <div class="container-fluid">
-                <div class="row">
+
                     <div class="col-sm-12">
+
+
+                        <!--                                <select th:field="*{listTypes}">-->
+                        <!--                                    <option th:each="type: ${listTypes}"-->
+                        <!--                                            th:value="${type.idtype}"-->
+                        <!--                                            th:text="#{${'selected.label.' + type.typenom}}"/>-->
+                        <!--                                </select>-->
                         <div class="card">
-                            <div class="card-header m-b-20">
-                                <h5>Les Réservations</h5>
-                            </div>
-
-                            <div class="col-sm-12">
-
-
-<!--                                <select th:field="*{listTypes}">-->
-<!--                                    <option th:each="type: ${listTypes}"-->
-<!--                                            th:value="${type.idtype}"-->
-<!--                                            th:text="#{${'selected.label.' + type.typenom}}"/>-->
-<!--                                </select>-->
-                                <div class="card">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                            <tr>
-                                                <th scope="col">ID Reservation</th>
-                                                <th scope="col">Date de reservation</th>
-                                                <th scope="col">Accepter</th>
-                                                <th scope="col">Supprimer</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr th:each="r:${listReservation}">
-                                                <td th:text="${r.idreservation}"></td>
-                                                <td th:text="${r.currentdate}"></td>
-                                                <td><a th:href="@{/edit-reservation/{id}(id=${r.getIdreservation()})}" class="btn btn-primary" th:if="${r.status} == false" th:text="Accepter"></a></td>
-                                                <td><a th:href="@{/delete-reservation/{id}(id=${r.getIdreservation()})}" class="btn btn-primary"><i class="icon-trash"></i></a></td>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">ID Reservation</th>
+                                        <th scope="col">Date de reservation</th>
+                                        <th scope="col">Accepter</th>
+                                        <th scope="col">Supprimer</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="r:${listReservation}">
+                                        <td th:text="${r.idreservation}"></td>
+                                        <td th:text="${r.currentdate}"></td>
+                                        <td><a th:href="@{/edit-reservation/{id}(id=${r.getIdreservation()})}" class="btn btn-primary" th:if="${r.status} == false" th:text="Accepter"></a></td>
+                                        <td><a th:href="@{/delete-reservation/{id}(id=${r.getIdreservation()})}" class="btn btn-primary"><i class="icon-trash"></i></a></td>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!--     Container-fluid Ends-->
-
-            <!--     Container-fluid Ends-->
-            <!--   ==========================     -->
         </div>
-        <!-- footer start-->
-        <footer th:replace="fragments :: footer"/>
-        <!-- footer Ends-->
     </div>
-</div>
 
-<span th:replace="fragments :: js-scripts"/>
-
-
-</body>
-</html>
+    <!-- Container-fluid Ends-->
+    </body>
+    </html>

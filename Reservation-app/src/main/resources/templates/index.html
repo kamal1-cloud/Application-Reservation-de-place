@@ -1,67 +1,35 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments :: head" />
+    <!DOCTYPE html>
+    <html lang="en"  xmlns:th="http://www.thymeleaf.org"
+          xmlns:layout="http://www.utraq.net.nz/thymeleaf/layout">
+     <div th:replace="/shared/head"></div>
+      <body>
+    <!-- Loader starts-->
+       <div th:replace="/shared/loader-wrapper"></div>
+    <!-- Loader ends-->
+    <!-- page-wrapper Start-->
+    <div class="page-wrapper compact-wrapper" id="pageWrapper">
 
-<body>
-<!-- Loader starts-->
-<div th:replace="fragments :: loader-wrapper"/>
-<!-- Loader ends-->
-<!-- page-wrapper Start-->
-<div class="page-wrapper compact-wrapper" id="pageWrapper">
+        <!-- Page Header Start-->
+        <div th:replace="/shared/nav-bar"></div>
+        <!-- Page Header Ends-->
+        <!-- Page Body Start-->
+        <div class="page-body-wrapper horizontal-menu">
+            <!-- Page Sidebar Start-->
+            <div th:replace="/shared/side-bar"></div>
+            <!-- Page Sidebar Ends-->
+            <div class="page-body">
+                <div th:replace="/shared/start-body"></div>
+                <!-- Container-fluid starts-->
+                <div class="container-fluid" layout:fragment="content">
 
-<div th:replace="fragments :: page-main-header"/>
-    <!-- Page Body Start-->
-    <div class="page-body-wrapper horizontal-menu">
-        <!-- Page Sidebar Start-->
-        <header th:replace="fragments :: sidebar"/>
 
-        <!-- Page Sidebar Ends-->
-        <div class="page-body">
-            <div class="container-fluid">
-                <div class="page-header">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <h3>Layout Light</h3>
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="../ltr/index.html">Home</a></li>
-                                <li class="breadcrumb-item">Admin</li>
-                            </ol>
-                        </div>
-                        <div class="col-lg-6">
-                            <!-- Bookmark Start-->
-                            <div class="bookmark pull-right">
-                                <ul>
-                                    <li><a href="#"><i class="bookmark-search" data-feather="star"></i></a>
-                                        <form class="form-inline search-form">
-                                            <div class="form-group form-control-search">
-                                                <input type="text" placeholder="Search..">
-                                            </div>
-                                        </form>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- Bookmark Ends-->
-                        </div>
-                    </div>
                 </div>
+                <!-- Container-fluid Ends-->
             </div>
-            <!-- Container-fluid starts-->
-            <div class="container-fluid">
-
-
-            </div>
-
-<!--     Container-fluid Ends-->
-      <!--   ==========================     -->
+            <!-- footer start-->
+         <div th:replace="/shared/footer"></div>
         </div>
-        <!-- footer start-->
-<footer th:replace="fragments :: footer"/>
-        <!-- footer Ends-->
     </div>
-</div>
-
-<span th:replace="fragments :: js-scripts"/>
-
-
-</body>
-</html>
+    <div th:replace="/shared/file_script"></div>
+    </body>
+    </html>

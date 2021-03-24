@@ -69,7 +69,7 @@ public class ApprenantEntity extends UsersEntity{
         return result;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "iduser", referencedColumnName = "iduser" , insertable = false, updatable = false)
     public UsersEntity getUsersByIduser() {
         return usersByIduser;

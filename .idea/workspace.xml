@@ -2,12 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c11bd2ce-7049-4d04-8389-eb4760c210b6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/DTO/ApprenantDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/DTO/UserApprenantDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reservation-app/src/main/resources/templates/new-reservation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reservation-app/src/main/resources/templates/test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/DAO/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/DAO/RoleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/DAO/UsersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/DAO/UsersRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/DAO/ApprenantRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/DAO/ApprenantRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/DAO/ReservationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/DAO/ReservationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Models/ApprenantEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Models/ApprenantEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Models/UsersEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Models/UsersEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/ReservationApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/ReservationApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Web/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Web/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Web/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Web/ReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Web/TypeReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Web/TypeReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Web/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/java/ma/youcode/reservation/Web/UsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/resources/templates/fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/resources/templates/fragments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/resources/templates/hello.html" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/resources/templates/hello.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/resources/templates/new-type.html" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/resources/templates/new-type.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/resources/templates/newType.html" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/resources/templates/newType.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/resources/templates/reservation-type.html" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/resources/templates/reservation-type.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/resources/templates/signup_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/resources/templates/signup_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation-app/src/main/resources/templates/update-type.html" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation-app/src/main/resources/templates/update-type.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +63,8 @@
       <updated>1615720399295</updated>
       <workItem from="1615720402292" duration="46000" />
       <workItem from="1615763638384" duration="600000" />
+      <workItem from="1616172604196" duration="253000" />
+      <workItem from="1616587572829" duration="538000" />
     </task>
     <servers />
   </component>

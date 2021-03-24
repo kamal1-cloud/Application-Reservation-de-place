@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.persistence.Access;
-import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -42,7 +41,7 @@ public class UsersController {
         List<UsersEntity> listUsers = service.listAll(keyword);
         model.addAttribute("listUsers", listUsers);
         model.addAttribute("keyword", keyword);
-        return "users";
+        return "list-users";
     }
 
 //    @GetMapping("/users")
@@ -85,7 +84,7 @@ public class UsersController {
     }
 
     @PostMapping("/update/{id}")
-    public String updateUser(@PathVariable("id") long id, @Valid ApprenantEntity apprenant, BindingResult result, Model model) {
+    public String updateUser(@PathVariable("id") long id, ApprenantEntity apprenant, BindingResult result, Model model) {
         if (result.hasErrors()) {
             apprenant.setIduser(id);
             return "update-user";

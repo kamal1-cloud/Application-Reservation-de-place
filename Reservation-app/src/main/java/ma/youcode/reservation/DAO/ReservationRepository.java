@@ -15,8 +15,8 @@ import java.util.List;
 public interface ReservationRepository extends JpaRepository<ReservationEntity, Long> {
 
    // @Query("SELECT r FROM ReservationEntity r WHERE r.status = false")
-   @Query("SELECT r.idreservation,r.status,r.currentdate,u.iduser,u.nom,u.prenom FROM ReservationEntity r,UsersEntity u WHERE r.iduser=u.iduser and r.status = false")
-   // @Query("SELECT r FROM ReservationEntity r WHERE r.status = FALSE ")
+  // @Query("SELECT r.idreservation,r.status,r.currentdate,u.iduser,u.nom,u.prenom FROM ReservationEntity r,UsersEntity u WHERE r.iduser=u.iduser and r.status = false")
+    @Query("SELECT r FROM ReservationEntity r WHERE r.status = FALSE ")
     List<ReservationEntity> getReservationEntityByStatus();
 
     //Update
