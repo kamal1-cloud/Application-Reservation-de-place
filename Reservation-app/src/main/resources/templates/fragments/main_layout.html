@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.utraq.net.nz/thymeleaf/layout">
+
+<div th:replace="/fragments/head"></div>
+<body>
+<!-- Loader starts-->
+<div th:replace="/fragments/loader-wrapper"></div>
+<!-- Loader ends-->
+<!-- page-wrapper Start-->
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+
+    <!-- Page Header Start-->
+    <div th:replace="/fragments/nav-bar"></div>
+    <!-- Page Header Ends-->
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper horizontal-menu">
+        <!-- Page Sidebar Start-->
+        <div th:replace="/fragments/side-bar"></div>
+        <!-- Page Sidebar Ends-->
+        <div class="page-body">
+            <div th:replace="/fragments/start-body"></div>
+            <!-- Container-fluid starts-->
+            <div class="container-fluid" layout:fragment="content">
+
+
+            </div>
+            <!-- Container-fluid Ends-->
+        </div>
+        <!-- footer start-->
+        <div th:replace="/fragments/footer"></div>
+    </div>
+</div>
+<div th:replace="/fragments/file_script"></div>
+</body>
+</html>

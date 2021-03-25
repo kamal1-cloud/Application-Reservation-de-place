@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -25,8 +26,13 @@ public class UsersEntity implements Serializable {
     private Long idrole;
     private Collection<ApprenantEntity> apprenantsByIduser;
     private Collection<ReservationEntity> reservationsByIduser;
-   // private RoleEntity roleByIdrole;
-    private RoleEntity role;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(	name = "role_users",
+            joinColumns = @JoinColumn(name = "users_idUser"),
+            inverseJoinColumns = @JoinColumn(name = "role_idRole"))
+    private Set<RoleEntity> roles = new HashSet<>();
+ //   private RoleEntity role;
 
 
     public UsersEntity(String nom, String prenom, String cin, String email, String password, Long idrole) {
@@ -36,6 +42,14 @@ public class UsersEntity implements Serializable {
         this.email = email;
         this.password = password;
         this.idrole = idrole;
+    }
+
+    public Set<RoleEntity> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<RoleEntity> roles) {
+        this.roles = roles;
     }
 
     public UsersEntity() {
@@ -179,14 +193,14 @@ public class UsersEntity implements Serializable {
         this.reservationsByIduser = reservationsByIduser;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "idRole", referencedColumnName = "idRole", insertable = false, updatable = false)
-    public RoleEntity getRole() {
-        return role;
-    }
-
-    public void setRole(RoleEntity role) {
-        this.role = role;
-    }
+//    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "idRole", referencedColumnName = "idRole", insertable = false, updatable = false)
+//    public RoleEntity getRole() {
+//        return role;
+//    }
+//
+//    public void setRole(RoleEntity role) {
+//        this.role = role;
+//    }
 
 }

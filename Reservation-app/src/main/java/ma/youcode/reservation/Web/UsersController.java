@@ -68,7 +68,7 @@ public class UsersController {
 
         apprenantRepository.save(user);
 
-        return "register_success";
+        return "login";
     }
 
 //=============================

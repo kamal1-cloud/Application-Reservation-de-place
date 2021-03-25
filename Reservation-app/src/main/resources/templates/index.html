@@ -1,35 +1,16 @@
-    <!DOCTYPE html>
-    <html lang="en"  xmlns:th="http://www.thymeleaf.org"
-          xmlns:layout="http://www.utraq.net.nz/thymeleaf/layout">
-     <div th:replace="/shared/head"></div>
-      <body>
-    <!-- Loader starts-->
-       <div th:replace="/shared/loader-wrapper"></div>
-    <!-- Loader ends-->
-    <!-- page-wrapper Start-->
-    <div class="page-wrapper compact-wrapper" id="pageWrapper">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/fragments/main_layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- Container-fluid starts-->
+<div class="container-fluid" layout:fragment="content">
 
-        <!-- Page Header Start-->
-        <div th:replace="/shared/nav-bar"></div>
-        <!-- Page Header Ends-->
-        <!-- Page Body Start-->
-        <div class="page-body-wrapper horizontal-menu">
-            <!-- Page Sidebar Start-->
-            <div th:replace="/shared/side-bar"></div>
-            <!-- Page Sidebar Ends-->
-            <div class="page-body">
-                <div th:replace="/shared/start-body"></div>
-                <!-- Container-fluid starts-->
-                <div class="container-fluid" layout:fragment="content">
-
-
-                </div>
-                <!-- Container-fluid Ends-->
-            </div>
-            <!-- footer start-->
-         <div th:replace="/shared/footer"></div>
-        </div>
-    </div>
-    <div th:replace="/shared/file_script"></div>
-    </body>
-    </html>
+</div>
+<!-- Container-fluid Ends-->
+</body>
+</html>
