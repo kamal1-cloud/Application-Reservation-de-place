@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/fragments/main_layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- Container-fluid starts-->
+<div class="container-fluid" layout:fragment="content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header m-b-20">
+                    <h5>Liste des Utilisateurs</h5>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Prénom</th>
+                                    <th>CIN</th>
+                                    <th>Email</th>
+                                    <th>Activer/Accepter</th>
+                                    <th>Supprimer</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="appr:${listApprenantDes}">
+                                    <td>
+
+                                        <p th:each="user:${listUsers}" th:if="(${user.iduser} == ${appr.iduser})" th:text="${appr.nom}"></p>
+                                    </td>
+                                    <td>
+
+                                        <p th:each="user:${listUsers}" th:if="(${user.iduser} == ${appr.iduser})" th:text="${appr.prenom}"></p>
+                                    </td>
+                                    <td>
+                                        <p th:each="user:${listUsers}" th:if="(${user.iduser} == ${appr.iduser})" th:text="${appr.cin}"></p>
+                                    </td>
+                                    <td>
+                                        <p th:each="user:${listUsers}" th:if="(${user.iduser} == ${appr.iduser})" th:text="${appr.email}"></p>
+                                    </td>
+
+                                    <td><a th:href="@{/edit-Apprenant-non-active/{id}(id=${appr.getIduser()})}" class="btn btn-primary" th:if="${appr.status} == false" th:text="Activer"></a></td>
+                                    <td><a th:href="@{/delete/{id}(id=${appr.getIduser()})}" class="btn btn-primary"><i class="icon-trash"></i></a></td>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- Container-fluid Ends-->
+</body>
+</html>
