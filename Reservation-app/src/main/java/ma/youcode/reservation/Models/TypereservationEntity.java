@@ -11,16 +11,11 @@ public class TypereservationEntity {
     private Integer nombredeplace;
     private Collection<ReservationEntity> reservationsByIdtype;
 
-    public TypereservationEntity(String typenom, Integer nombredeplace) {
-        this.typenom = typenom;
-        this.nombredeplace = nombredeplace;
-    }
-
     public TypereservationEntity() {
     }
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idtype")
     public int getIdtype() {
         return idtype;

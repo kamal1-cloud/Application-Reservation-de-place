@@ -1,7 +1,9 @@
 package ma.youcode.reservation.Web;
 
 import ma.youcode.reservation.DAO.ReservationRepository;
+import ma.youcode.reservation.DAO.UsersRepository;
 import ma.youcode.reservation.Models.ReservationEntity;
+import ma.youcode.reservation.Models.UsersEntity;
 import ma.youcode.reservation.Services.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,8 @@ public class ReservationController {
     private ReservationRepository reservationRepository;
     @Autowired
     private ReservationService reservationServices;
+    @Autowired
+    private UsersRepository usersRepository;
 
 //    @GetMapping("/reservation")
 //    public String listType(Model model) {
@@ -30,6 +34,8 @@ public class ReservationController {
     @GetMapping("/reservation")
     public String listReservation(Model model) {
         List<ReservationEntity> listReservation = reservationRepository.getReservationEntityByStatus();
+        List<UsersEntity> listUsers = usersRepository.findAll();
+        model.addAttribute("listUsers", listUsers);
         model.addAttribute("listReservation", listReservation);
         return "reservation";
     }
@@ -45,10 +51,10 @@ public class ReservationController {
 
     @RequestMapping(value = "/save-reservation")
     public String saveReservation(@ModelAttribute("reservation") ReservationEntity reservation) {
-
+    //    reservation.setIduser(user);
         reservationServices.save(reservation);
 
-        return "redirect:/reservation";
+        return "redirect:/index";
     }
 
     @RequestMapping("/edit-reservation/{id}")

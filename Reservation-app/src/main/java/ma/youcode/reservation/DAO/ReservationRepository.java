@@ -1,7 +1,6 @@
 package ma.youcode.reservation.DAO;
 
 import ma.youcode.reservation.Models.ReservationEntity;
-import ma.youcode.reservation.Models.UsersEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

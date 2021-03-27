@@ -4,11 +4,10 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="connection.url">jdbc:postgresql://localhost:5432/reservationDb</property>
+    <property name="connection.url">jdbc:postgresql://localhost:5432/reservation</property>
     <property name="connection.driver_class">org.postgresql.Driver</property>
       <mapping class="ma.youcode.reservation.Models.ApprenantEntity"/>
       <mapping class="ma.youcode.reservation.Models.ReservationEntity"/>
-      <mapping class="ma.youcode.reservation.Models.RoleEntity"/>
       <mapping class="ma.youcode.reservation.Models.TypereservationEntity"/>
       <mapping class="ma.youcode.reservation.Models.UsersEntity"/>
       <!-- <property name="connection.username"/> -->

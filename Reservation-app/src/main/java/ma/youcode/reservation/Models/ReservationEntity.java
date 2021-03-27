@@ -6,7 +6,6 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "reservation")
 public class ReservationEntity {
-    private Long id;
     private long idreservation;
     private Timestamp currentdate;
     private Boolean status;
@@ -16,7 +15,7 @@ public class ReservationEntity {
     private TypereservationEntity typereservationByIdtype;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idreservation")
     public long getIdreservation() {
         return idreservation;
@@ -26,8 +25,16 @@ public class ReservationEntity {
         this.idreservation = idreservation;
     }
 
+    public ReservationEntity( Long iduser, Long idtype, UsersEntity usersByIduser) {
+
+        this.iduser = iduser;
+        this.idtype = idtype;
+        this.usersByIduser = usersByIduser;
+    }
+
+
     @Basic
-    @Column(name = "currentdate")
+    @Column(name="currentdate",insertable=false)
     public Timestamp getCurrentdate() {
         return currentdate;
     }
@@ -37,7 +44,7 @@ public class ReservationEntity {
     }
 
     @Basic
-    @Column(name = "status")
+    @Column(name = "status",insertable=false)
     public Boolean getStatus() {
         return status;
     }
@@ -92,8 +99,11 @@ public class ReservationEntity {
         return result;
     }
 
+    public ReservationEntity() {
+    }
+
     @ManyToOne
-    @JoinColumn(name = "iduser", referencedColumnName = "iduser" , insertable = false, updatable = false)
+    @JoinColumn(name = "iduser", referencedColumnName = "iduser", insertable = false, updatable = false)
     public UsersEntity getUsersByIduser() {
         return usersByIduser;
     }
@@ -103,7 +113,7 @@ public class ReservationEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "idtype", referencedColumnName = "idtype" , insertable = false, updatable = false)
+    @JoinColumn(name = "idtype", referencedColumnName = "idtype", insertable = false, updatable = false)
     public TypereservationEntity getTypereservationByIdtype() {
         return typereservationByIdtype;
     }

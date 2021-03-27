@@ -1,60 +1,34 @@
 package ma.youcode.reservation.Models;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import javax.persistence.*;
-import java.io.Serializable;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.sql.Timestamp;
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
 @Entity
-@Table(name = "users",uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name = "users")
 @Inheritance(strategy=InheritanceType.JOINED)
-public class UsersEntity implements Serializable {
+public class UsersEntity {
     private long iduser;
     private String nom;
     private String prenom;
+    @Size(min = 6, max = 7)
     private String cin;
+    @Email(message = "Please enter a valid e-mail address")
     private String email;
+    @NotBlank
+    @Size(min = 6, max = 15)
     private String password;
+    private String role;
     private Timestamp currentdate;
-    private Long idrole;
     private Collection<ApprenantEntity> apprenantsByIduser;
     private Collection<ReservationEntity> reservationsByIduser;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(	name = "role_users",
-            joinColumns = @JoinColumn(name = "users_idUser"),
-            inverseJoinColumns = @JoinColumn(name = "role_idRole"))
-    private Set<RoleEntity> roles = new HashSet<>();
- //   private RoleEntity role;
-
-
-    public UsersEntity(String nom, String prenom, String cin, String email, String password, Long idrole) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.cin = cin;
-        this.email = email;
-        this.password = password;
-        this.idrole = idrole;
-    }
-
-    public Set<RoleEntity> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<RoleEntity> roles) {
-        this.roles = roles;
-    }
-
     public UsersEntity() {
-
     }
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -107,9 +81,6 @@ public class UsersEntity implements Serializable {
         this.email = email;
     }
 
-
-
-
     @Basic
     @Column(name = "password")
     public String getPassword() {
@@ -121,8 +92,17 @@ public class UsersEntity implements Serializable {
     }
 
     @Basic
-//    @CreationTimestamp
-    @Column(name="currentdate",insertable=false)
+    @Column(name = "role",insertable=false)
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    @Basic
+    @Column(name = "currentdate",insertable=false)
     public Timestamp getCurrentdate() {
         return currentdate;
     }
@@ -130,18 +110,6 @@ public class UsersEntity implements Serializable {
     public void setCurrentdate(Timestamp currentdate) {
         this.currentdate = currentdate;
     }
-
-    @Basic
-    @Column(name = "idRole", insertable = false)
-
-    public Long getIdrole() {
-        return idrole;
-    }
-
-    public void setIdrole(Long idrole) {
-        this.idrole = idrole;
-    }
-
 
     @Override
     public boolean equals(Object o) {
@@ -151,13 +119,13 @@ public class UsersEntity implements Serializable {
         UsersEntity that = (UsersEntity) o;
 
         if (iduser != that.iduser) return false;
-        if (!Objects.equals(nom, that.nom)) return false;
-        if (!Objects.equals(prenom, that.prenom)) return false;
-        if (!Objects.equals(cin, that.cin)) return false;
-        if (!Objects.equals(email, that.email)) return false;
-        if (!Objects.equals(password, that.password)) return false;
-        if (!Objects.equals(currentdate, that.currentdate)) return false;
-        if (!Objects.equals(idrole, that.idrole)) return false;
+        if (nom != null ? !nom.equals(that.nom) : that.nom != null) return false;
+        if (prenom != null ? !prenom.equals(that.prenom) : that.prenom != null) return false;
+        if (cin != null ? !cin.equals(that.cin) : that.cin != null) return false;
+        if (email != null ? !email.equals(that.email) : that.email != null) return false;
+        if (password != null ? !password.equals(that.password) : that.password != null) return false;
+        if (role != null ? !role.equals(that.role) : that.role != null) return false;
+        if (currentdate != null ? !currentdate.equals(that.currentdate) : that.currentdate != null) return false;
 
         return true;
     }
@@ -170,8 +138,8 @@ public class UsersEntity implements Serializable {
         result = 31 * result + (cin != null ? cin.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (role != null ? role.hashCode() : 0);
         result = 31 * result + (currentdate != null ? currentdate.hashCode() : 0);
-        result = 31 * result + (idrole != null ? idrole.hashCode() : 0);
         return result;
     }
 
@@ -192,15 +160,4 @@ public class UsersEntity implements Serializable {
     public void setReservationsByIduser(Collection<ReservationEntity> reservationsByIduser) {
         this.reservationsByIduser = reservationsByIduser;
     }
-
-//    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//    @JoinColumn(name = "idRole", referencedColumnName = "idRole", insertable = false, updatable = false)
-//    public RoleEntity getRole() {
-//        return role;
-//    }
-//
-//    public void setRole(RoleEntity role) {
-//        this.role = role;
-//    }
-
 }

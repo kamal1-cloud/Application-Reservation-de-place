@@ -1,38 +1,26 @@
 package ma.youcode.reservation.Models;
 
-import org.springframework.beans.factory.annotation.Value;
-
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table(name = "apprenant")
 public class ApprenantEntity extends UsersEntity{
-
     private Boolean status;
     private Integer ndereservation;
     private Long iduser;
     private UsersEntity usersByIduser;
 
-
-
-
-    public ApprenantEntity() {
-
-    }
-    public ApprenantEntity(String nom, String prenom, String cin, String email, String password, Boolean status) {
-        super(nom, prenom, cin, email, password,2L);
-        this.status = status;
-    }
-
     @Basic
-    @Column(name = "status" ,insertable=false)
+    @Column(name = "status",insertable=false)
     public Boolean getStatus() {
         return status;
     }
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    public ApprenantEntity() {
     }
 
     @Basic
@@ -45,7 +33,6 @@ public class ApprenantEntity extends UsersEntity{
         this.ndereservation = ndereservation;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -53,10 +40,10 @@ public class ApprenantEntity extends UsersEntity{
 
         ApprenantEntity that = (ApprenantEntity) o;
 
-        if (!Objects.equals(status, that.status)) return false;
-        if (!Objects.equals(ndereservation, that.ndereservation))
+        if (status != null ? !status.equals(that.status) : that.status != null) return false;
+        if (ndereservation != null ? !ndereservation.equals(that.ndereservation) : that.ndereservation != null)
             return false;
-        if (!Objects.equals(iduser, that.iduser)) return false;
+        if (iduser != null ? !iduser.equals(that.iduser) : that.iduser != null) return false;
 
         return true;
     }
@@ -69,8 +56,8 @@ public class ApprenantEntity extends UsersEntity{
         return result;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "iduser", referencedColumnName = "iduser" , insertable = false, updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "iduser", referencedColumnName = "iduser", insertable = false, updatable = false)
     public UsersEntity getUsersByIduser() {
         return usersByIduser;
     }
@@ -78,5 +65,4 @@ public class ApprenantEntity extends UsersEntity{
     public void setUsersByIduser(UsersEntity usersByIduser) {
         this.usersByIduser = usersByIduser;
     }
-
 }

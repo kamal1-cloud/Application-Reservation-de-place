@@ -13,18 +13,20 @@
                             <i data-feather="home">
                             </i><span>Dashboard</span></a>
                     </li>
-                    <li class="dropdown"><a class="nav-link menu-title" href="#"><i data-feather="anchor"></i><span>Gestion des Utilisateurs</span></a>
+
+                    <li class="dropdown" ><a sec:authorize="hasAnyAuthority('ADMIN')" class="nav-link menu-title" href="#"><i data-feather="anchor"></i><span>Gestion des Utilisateurs</span></a>
                         <ul class="nav-submenu menu-content">
 
-                            <li><a class="submenu-title" th:href="@{/users}"> List Utilisateurs<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span></a></li>
-                            <li><a class="submenu-title" href="#">Utilisateurs Non Accepter<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span></a></li>
+                            <li><a class="submenu-title" th:href="@{/users}"  sec:authorize="hasAnyAuthority('ADMIN')"> List Utilisateurs<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span></a></li>
+                            <li><a class="submenu-title" href="#" sec:autorize="hasRole('ADMIN')" th:href="@{/utilisateur-non-accepter}">Utilisateurs Non Accepter<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span></a></li>
                             </span>
                             </a>
 
                             </li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a class="nav-link menu-title" href="#"><i data-feather="anchor"></i><span>Type de Réservations</span></a>
+
+                    <li class="dropdown"><a sec:authorize="hasAnyAuthority('ADMIN')" class="nav-link menu-title" href="#"><i data-feather="anchor"></i><span>Type de Réservations</span></a>
                         <ul class="nav-submenu menu-content">
 
                             <li><a class="submenu-title" th:href="@{/Type/reservation}"> List Type<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span></a></li>
@@ -35,8 +37,9 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a class="nav-link menu-title" th:href="@{/reservation}" target=""><i data-feather="headphones"></i><span>Réservation</span></a></li>
-                    <li class="dropdown"><a class="nav-link menu-title" th:href="@{/AjouterReservation}" target=""><i data-feather="file-text"></i><span>Modifier Le Profile</span></a></li>
+                    <li class="dropdown"><a sec:authorize="hasAnyAuthority('ADMIN')" class="nav-link menu-title" th:href="@{/reservation}" target="" sec:autorize="hasRole('ADMIN')"><i data-feather="headphones"></i><span>Réservation</span></a></li>
+                    <li class="dropdown"><a sec:authorize="hasAnyAuthority('APPRENANT')"  class="nav-link menu-title" th:href="@{/new-reservation}" target=""><i data-feather="file-text"></i><span>Réservé(e)</span></a></li>
+                    <li class="dropdown"><a class="nav-link menu-title" th:href="@{/AjouterReservation}" target=""><i data-feather="file-text"></i><span>Modifier le Profile</span></a></li>
                 </ul>
             </div>
         </div>
