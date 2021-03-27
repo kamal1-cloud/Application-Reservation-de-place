@@ -30,6 +30,8 @@
                                     <thead>
                                     <tr>
                                         <th scope="col">ID Reservation</th>
+                                        <th scope="col">Nom</th>
+                                        <th scope="col">Prenom</th>
                                         <th scope="col">Date de reservation</th>
                                         <th scope="col">Accepter</th>
                                         <th scope="col">Supprimer</th>
@@ -38,6 +40,13 @@
                                     <tbody>
                                     <tr th:each="r:${listReservation}">
                                         <td th:text="${r.idreservation}"></td>
+                                        <td>
+                                            <p th:each="user:${listUsers}" th:if="(${user.iduser} == ${r.iduser})" th:text="${user.nom}"></p>
+                                        </td>
+                                        <td>
+                                            <p th:each="user : ${listUsers}" th:if="(${user.iduser} == ${r.iduser})" th:text="${user.prenom}"></p>
+                                        </td>
+
                                         <td th:text="${r.currentdate}"></td>
                                         <td><a th:href="@{/edit-reservation/{id}(id=${r.getIdreservation()})}" class="btn btn-primary" th:if="${r.status} == false" th:text="Accepter"></a></td>
                                         <td><a th:href="@{/delete-reservation/{id}(id=${r.getIdreservation()})}" class="btn btn-primary"><i class="icon-trash"></i></a></td>
