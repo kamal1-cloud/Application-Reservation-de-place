@@ -2,16 +2,17 @@
     <div class="page-header">
         <div class="row">
             <div class="col-lg-6">
-                <h3>Layout Light</h3>
+                <h3>Welcome [[${#request.userPrincipal.principal.nom}]]</h3>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="../ltr/index.html">Home</a></li>
-                    <li class="breadcrumb-item">Starter Kit</li>
-                    <li class="breadcrumb-item">Color Version</li>
-                    <li class="breadcrumb-item active">Layout Light</li>
+<!--                    <li class="breadcrumb-item">Starter Kit</li>-->
+<!--                    <li class="breadcrumb-item">Color Version</li>-->
+<!--                    <li class="breadcrumb-item active">Layout Light</li>-->
                 </ol>
-                <div sec:authorize="isAuthenticated()">
-                    Authenticated as <span sec:authentication="name"></span></div>
-                <span th:text="${#authentication.getPrincipal().authorities}"></span>
+<!--                <div sec:authorize="isAuthenticated()">-->
+<!--                    Authenticated as <span sec:authentication="name"></span></div>-->
+<!--                <span th:text="${#authentication.getPrincipal().authorities}"></span>-->
+<!--                <span >[[${#request.userPrincipal.principal.nom}]]</span>-->
             </div>
             <div class="col-lg-6">
                 <!-- Bookmark Start-->

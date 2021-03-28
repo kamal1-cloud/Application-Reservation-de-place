@@ -52,7 +52,12 @@ public class MyUserDetails implements UserDetails {
         return true;
     }
 
+    public String getNom(){
+        return user.getNom();
+    }
+
     public UsersEntity getUser() {
         return user;
     }
+
 }
