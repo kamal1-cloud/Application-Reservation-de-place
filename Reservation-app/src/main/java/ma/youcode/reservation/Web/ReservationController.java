@@ -57,13 +57,10 @@ public class ReservationController {
 
     @RequestMapping(value = "/save-reservation")
     public String saveReservation(@ModelAttribute("reservation") ReservationEntity reservation ) {
-       // Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-      //  UsersEntity user = (UsersEntity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
         MyUserDetails myUserDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Long userId= myUserDetails.getUser().getIduser(); //Fetch the custom property in User class
-       // Long userId = user.getIduser();
-        reservation.setIdtype(userId);
-    //    reservation.setIduser(user);
+        reservation.setIduser(userId);
         reservationServices.save(reservation);
 
         return "redirect:/index";
