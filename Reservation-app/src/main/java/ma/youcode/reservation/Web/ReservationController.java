@@ -4,8 +4,12 @@ import ma.youcode.reservation.DAO.ReservationRepository;
 import ma.youcode.reservation.DAO.UsersRepository;
 import ma.youcode.reservation.Models.ReservationEntity;
 import ma.youcode.reservation.Models.UsersEntity;
+import ma.youcode.reservation.Security.MyUserDetails;
 import ma.youcode.reservation.Services.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +17,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.security.Principal;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class ReservationController {
@@ -41,7 +47,7 @@ public class ReservationController {
     }
 
     @RequestMapping("/new-reservation")
-    public String showNewReservationForm(Model model) {
+    public String showNewReservationForm( Model model) {
         ReservationEntity reservation = new ReservationEntity();
         model.addAttribute("reservation", reservation);
 
@@ -50,7 +56,13 @@ public class ReservationController {
 
 
     @RequestMapping(value = "/save-reservation")
-    public String saveReservation(@ModelAttribute("reservation") ReservationEntity reservation) {
+    public String saveReservation(@ModelAttribute("reservation") ReservationEntity reservation ) {
+       // Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+      //  UsersEntity user = (UsersEntity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        MyUserDetails myUserDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long userId= myUserDetails.getUser().getIduser(); //Fetch the custom property in User class
+       // Long userId = user.getIduser();
+        reservation.setIdtype(userId);
     //    reservation.setIduser(user);
         reservationServices.save(reservation);
 
