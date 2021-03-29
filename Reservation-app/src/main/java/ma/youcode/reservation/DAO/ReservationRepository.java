@@ -17,6 +17,9 @@ public interface ReservationRepository extends JpaRepository<ReservationEntity, 
   // @Query("SELECT r.idreservation,r.status,r.currentdate,u.iduser,u.nom,u.prenom FROM ReservationEntity r,UsersEntity u WHERE r.iduser=u.iduser and r.status = false")
     @Query("SELECT r FROM ReservationEntity r WHERE r.status = FALSE ")
     List<ReservationEntity> getReservationEntityByStatus();
+//Find reservation by user
+ @Query("SELECT r FROM ReservationEntity r WHERE r.iduser = :id ")
+ List<ReservationEntity> getReservationEntityByIduser(@Param("id") Long id);
 
     //Update
     @Transactional

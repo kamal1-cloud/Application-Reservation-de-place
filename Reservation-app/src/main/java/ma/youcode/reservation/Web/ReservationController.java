@@ -1,8 +1,10 @@
 package ma.youcode.reservation.Web;
 
 import ma.youcode.reservation.DAO.ReservationRepository;
+import ma.youcode.reservation.DAO.TypeReservationRepository;
 import ma.youcode.reservation.DAO.UsersRepository;
 import ma.youcode.reservation.Models.ReservationEntity;
+import ma.youcode.reservation.Models.TypereservationEntity;
 import ma.youcode.reservation.Models.UsersEntity;
 import ma.youcode.reservation.Security.MyUserDetails;
 import ma.youcode.reservation.Services.ReservationService;
@@ -29,6 +31,8 @@ public class ReservationController {
     private ReservationService reservationServices;
     @Autowired
     private UsersRepository usersRepository;
+    @Autowired
+    private TypeReservationRepository typeReservationRepository;
 
 //    @GetMapping("/reservation")
 //    public String listType(Model model) {
@@ -41,8 +45,10 @@ public class ReservationController {
     public String listReservation(Model model) {
         List<ReservationEntity> listReservation = reservationRepository.getReservationEntityByStatus();
         List<UsersEntity> listUsers = usersRepository.findAll();
+        List<TypereservationEntity> type = typeReservationRepository.findAll();
         model.addAttribute("listUsers", listUsers);
         model.addAttribute("listReservation", listReservation);
+        model.addAttribute("type", type);
         return "reservation";
     }
 

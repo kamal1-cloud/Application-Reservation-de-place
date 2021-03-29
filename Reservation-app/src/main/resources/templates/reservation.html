@@ -18,12 +18,12 @@
 
                     <div class="col-sm-12">
 
-
-                        <!--                                <select th:field="*{listTypes}">-->
-                        <!--                                    <option th:each="type: ${listTypes}"-->
-                        <!--                                            th:value="${type.idtype}"-->
-                        <!--                                            th:text="#{${'selected.label.' + type.typenom}}"/>-->
-                        <!--                                </select>-->
+                        <div class="form-group blu-margin">
+                            <select class="form-control" id="typeReservation" name="typeReservation">
+                                <option value="0">Select Type de Réservation</option>
+                                <option th:each="t : ${type}" th:value="${t.idtype}" th:text="${t.typenom}"></option>
+                            </select>
+                        </div>
                         <div class="card">
                             <div class="table-responsive">
                                 <table class="table table-bordered">

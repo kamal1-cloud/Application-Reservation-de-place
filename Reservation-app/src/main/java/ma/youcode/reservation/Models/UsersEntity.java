@@ -12,14 +12,16 @@ import java.util.Collection;
 @Inheritance(strategy=InheritanceType.JOINED)
 public class UsersEntity {
     private long iduser;
+    @NotBlank(message = "Nom is mandatory")
     private String nom;
+    @NotBlank(message = "Prenom is mandatory")
     private String prenom;
-    @Size(min = 6, max = 7)
+    @NotBlank(message = "Cin is mandatory")
+    @Size(max = 7)
     private String cin;
     @Email(message = "Please enter a valid e-mail address")
     private String email;
     @NotBlank
-    @Size(min = 6, max = 15)
     private String password;
     private String role;
     private Timestamp currentdate;

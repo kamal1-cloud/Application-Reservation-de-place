@@ -19,6 +19,8 @@ public interface UsersRepository extends JpaRepository<UsersEntity, Long> {
 
     @Query("SELECT r.idreservation,r.status,r.currentdate,u.iduser,u.nom,u.prenom FROM ReservationEntity r,UsersEntity u WHERE r.iduser=u.iduser and r.status = false")
     UsersEntity findUsersEntityByApprenantsByIduserFalse();
+//===================
 
-//    public List<String> findUsersEntityByIdroleAndRole(String role);
+    @Query("SELECT u FROM UsersEntity u WHERE u.iduser = :id")
+    public UsersEntity getUserByIduser(@Param("id") Long id);
 }

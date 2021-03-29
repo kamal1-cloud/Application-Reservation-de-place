@@ -13,6 +13,7 @@ public class ReservationService {
     @Autowired
     ReservationRepository reservationRepository;
 
+
     public void save(ReservationEntity type) {
         reservationRepository.save(type);
     }
@@ -23,11 +24,16 @@ public class ReservationService {
     public ReservationEntity get(Long id) {
         return reservationRepository.findById(id).get();
     }
+
     public List<ReservationEntity> getReservationEntityByStatus(){
         return reservationRepository.getReservationEntityByStatus();
     }
 
     public void updateStatus(Long id){
         reservationRepository.updateReservationSetStatus(id);
+    }
+
+    public void userReservation(Long id){
+        reservationRepository.getReservationEntityByIduser(id);
     }
 }

@@ -58,14 +58,7 @@ public class ApprenantController {
         return "redirect:/users";
     }
 
-    @RequestMapping("/historique-Apprenant/{id}")
-    public String historique(@PathVariable(name = "id") Long id) {
-        if (id != null){
 
-        }
-
-        return "historique";
-    }
 
 //    @RequestMapping("/users")
 //    public String viewHomePage(Model model, @Param("keyword") String keyword) {

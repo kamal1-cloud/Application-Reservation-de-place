@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/fragments/main_layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- Container-fluid starts-->
+<div class="container-fluid" layout:fragment="content">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link pl-0 f-w-600" data-toggle="collapse" data-target="#collapseicon2" aria-expanded="true" aria-controls="collapseicon2" >Profile Intro</button>
+                    </h5>
+                </div>
+                <div class="collapse show" id="collapseicon2"  th:object="${user}" aria-labelledby="collapseicon2" data-parent="#accordion">
+                    <div class="card-body filter-cards-view">
+                        <span class="f-w-600">nom complet :</span>
+                        <p>
+                            <span th:text="${user.nom}"></span> <span th:text="${user.prenom}"></span>
+                        </p>
+                        <span class="f-w-600">CIN :</span>
+                        <p>
+                            <span th:text="${user.cin}"></span>
+                        </p>
+                        <span class="f-w-600">E-mail :</span>
+                        <p>
+                            <span th:text="${user.username}"></span>
+                        </p>
+                        <span class="f-w-600">Date de Creation de Compte :</span>
+                        <p>
+                            <span th:text="${user.currentdate}"></span>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--     ==========Reservation===========       -->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link pl-0 f-w-600" data-toggle="collapse" data-target="#collapseicon2" aria-expanded="true" aria-controls="collapseicon2">Reservation effectuer par l'aprenant</button>
+                    </h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">ID Reservation</th>
+                            <th scope="col">Type de Réservation</th>
+                            <th scope="col">Date de Réservation</th>
+                            <th scope="col">l'état de réservation</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="l:${listReservation}">
+                            <td th:text="${l.idreservation}"></td>
+                            <td th:switch="${l.idtype}">
+
+                                <p th:case="1">17H-20H</p>
+                                <p th:case="2">Weekend</p>
+                            </td>
+                            <td th:text="${l.currentdate}"></td>
+                            <td th:switch="${l.status}">
+
+                                <p th:case="true">Accepter</p>
+                                <p th:case="false">Non Accepter</p>
+                            </td>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Container-fluid Ends-->
+</body>
+</html>
