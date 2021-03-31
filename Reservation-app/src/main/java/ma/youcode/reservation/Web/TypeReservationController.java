@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -56,5 +57,27 @@ public class TypeReservationController {
         service.deleteType(id);
         return "redirect:/Type/reservation";
     }
-
+//    ============= Filter by type
+//@GetMapping("/redeem_accounts_list_by_redeemer/{id}")
+//public ModelAndView redeemAccByRedeemer(@PathVariable(value = "id") Long id , Model model)
+//{
+//    ModelAndView modelAndView = new ModelAndView();
+//    List<RedeemAccountDTO> listOfRedeemAccByRedeemer = new ArrayList<RedeemAccountDTO>();
+//    try
+//    {
+//        listOfRedeemAccByRedeemer = redeemAccountService.findRedeemAccByEmployee(id);
+//        modelAndView.addObject("listOfRedeemAccByRedeemer", listOfRedeemAccByRedeemer);
+//        modelAndView.addObject("totalItems", listOfRedeemAccByRedeemer.size());
+//        List<EmployeeDTO> redeemerList = redeemAccountService.getRedeemers("Redeemer", "Manager");
+//        model.addAttribute("employees",redeemerList);
+//        modelAndView.setViewName("redirect:/redeem_accounts_list");
+//    }
+//    catch(Exception e)
+//    {
+//        log.error("Error in retrieving the list", e);
+//        e.printStackTrace();
+//    }
+//
+//    return modelAndView;
+//}
 }

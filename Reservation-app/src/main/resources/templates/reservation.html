@@ -24,6 +24,16 @@
                                 <option th:each="t : ${type}" th:value="${t.idtype}" th:text="${t.typenom}"></option>
                             </select>
                         </div>
+<!--                        <form th:action="@{/redeem_accounts_list_by_redeemer/{id}(id=${t.idtype})}" >-->
+<!--                            <div align="left">-->
+<!--                                <label for = "employee">Redeem nalozi po ridimeru: </label>-->
+<!--                                <select id = "employee" name = "employee">-->
+<!--                                    <option selected disabled hidden style='display: none' value=''></option>-->
+<!--                                    <option th:each="t : ${type}" th:value="${t.idtype}" th:text="${t.typenom}" th:data = "${t.idtype"></option>-->
+<!--                                </select>-->
+<!--                                <button type = "submit">Search</button>-->
+<!--                            </div>-->
+<!--                        </form>-->
                         <div class="card">
                             <div class="table-responsive">
                                 <table class="table table-bordered">
