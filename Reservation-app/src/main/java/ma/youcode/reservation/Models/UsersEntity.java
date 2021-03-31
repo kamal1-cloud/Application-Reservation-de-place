@@ -25,11 +25,13 @@ public class UsersEntity {
     private String password;
     private String role;
     private Timestamp currentdate;
+    private Boolean status;
     private Collection<ApprenantEntity> apprenantsByIduser;
     private Collection<ReservationEntity> reservationsByIduser;
 
     public UsersEntity() {
     }
+
 
 
     @Id
@@ -111,6 +113,16 @@ public class UsersEntity {
 
     public void setCurrentdate(Timestamp currentdate) {
         this.currentdate = currentdate;
+    }
+
+    @Basic
+    @Column(name = "status",insertable=false)
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package ma.youcode.reservation.DAO;
+package ma.youcode.reservation.Repositories;
 
 import ma.youcode.reservation.Models.ApprenantEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

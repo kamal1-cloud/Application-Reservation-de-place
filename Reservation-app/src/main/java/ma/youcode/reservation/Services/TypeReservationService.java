@@ -1,6 +1,6 @@
 package ma.youcode.reservation.Services;
 
-import ma.youcode.reservation.DAO.TypeReservationRepository;
+import ma.youcode.reservation.Repositories.TypeReservationRepository;
 import ma.youcode.reservation.Models.TypereservationEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

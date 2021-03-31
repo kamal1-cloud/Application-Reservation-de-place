@@ -1,16 +1,14 @@
 package ma.youcode.reservation.Web;
 
-import ma.youcode.reservation.DAO.ReservationRepository;
-import ma.youcode.reservation.DAO.TypeReservationRepository;
-import ma.youcode.reservation.DAO.UsersRepository;
+import ma.youcode.reservation.Repositories.ReservationRepository;
+import ma.youcode.reservation.Repositories.TypeReservationRepository;
+import ma.youcode.reservation.Repositories.UsersRepository;
 import ma.youcode.reservation.Models.ReservationEntity;
 import ma.youcode.reservation.Models.TypereservationEntity;
 import ma.youcode.reservation.Models.UsersEntity;
 import ma.youcode.reservation.Security.MyUserDetails;
 import ma.youcode.reservation.Services.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,9 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.security.Principal;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class ReservationController {

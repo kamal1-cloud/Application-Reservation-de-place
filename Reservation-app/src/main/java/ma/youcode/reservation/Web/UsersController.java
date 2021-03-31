@@ -1,7 +1,7 @@
 package ma.youcode.reservation.Web;
 
-import ma.youcode.reservation.DAO.ApprenantRepository;
-import ma.youcode.reservation.DAO.UsersRepository;
+import ma.youcode.reservation.Repositories.ApprenantRepository;
+import ma.youcode.reservation.Repositories.UsersRepository;
 import ma.youcode.reservation.Models.ApprenantEntity;
 import ma.youcode.reservation.Models.UsersEntity;
 import ma.youcode.reservation.Services.UserService;
@@ -102,5 +102,42 @@ public class UsersController {
         return "redirect:/users";
 
     }
+
+//:::::::::::::::::::::::
+
+
+    @GetMapping("/users")
+    public String listApprenantActive(Model model, @Param("keyword") String keyword) {
+        List<UsersEntity> listApprenant = usersRepository.getUsersEntityByStatusTrue();
+      //  List<UsersEntity> listUsers = service.listAll(keyword);
+        model.addAttribute("listApprenant", listApprenant);
+       // model.addAttribute("listUsers", listUsers);
+        return "list-users";
+    }
+    @GetMapping("/utilisateur-non-accepter")
+    public String listApprenantDesactiver(Model model, @Param("keyword") String keyword) {
+        List<UsersEntity> listApprenant = usersRepository.getUsersEntityByStatusFalse();
+        List<UsersEntity> listUsers = service.listAll(keyword);
+        model.addAttribute("listApprenantDes", listApprenant);
+        model.addAttribute("listUsers", listUsers);
+        return "utilisateur-non-accepter";
+    }
+    @RequestMapping("/edit-Apprenant-non-active/{id}")
+    public String activerLeCompte(@PathVariable(name = "id") Long id) {
+        if (id != null){
+            service.activerLeCompte(id);
+        }
+
+        return "redirect:/utilisateur-non-accepter";
+    }
+    @RequestMapping("/edit-Apprenant/{id}")
+    public String desactiverLeCompte(@PathVariable(name = "id") Long id) {
+        if (id != null){
+            service.desactiverLeCompte(id);
+        }
+
+        return "redirect:/users";
+    }
+
 
 }

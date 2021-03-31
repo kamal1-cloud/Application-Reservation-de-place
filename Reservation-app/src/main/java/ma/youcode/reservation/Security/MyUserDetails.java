@@ -50,9 +50,12 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public boolean isEnabled() {
+        if(this.getStatus() == false) return false;
         return true;
     }
-
+    public Boolean getStatus(){
+        return user.getStatus();
+    }
     public String getNom(){
         return user.getNom();
     }

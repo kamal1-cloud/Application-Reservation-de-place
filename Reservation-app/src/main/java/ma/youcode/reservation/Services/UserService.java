@@ -1,16 +1,13 @@
 package ma.youcode.reservation.Services;
 
-import ma.youcode.reservation.DAO.UsersRepository;
-import ma.youcode.reservation.Models.TypereservationEntity;
+import ma.youcode.reservation.Repositories.UsersRepository;
 import ma.youcode.reservation.Models.UsersEntity;
 import ma.youcode.reservation.Security.MyUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -41,6 +38,13 @@ public class UserService implements UserDetailsService {
     }
     public UsersEntity get(Long id) {
         return userRepository.findById(id).get();
+    }
+
+    public void activerLeCompte(Long id){
+        userRepository.updateApprenantSetStatusToTrue(id);
+    }
+    public void desactiverLeCompte(Long id){
+        userRepository.updateApprenantSetStatusToFalse(id);
     }
 
 

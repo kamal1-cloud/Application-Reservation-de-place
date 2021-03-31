@@ -28,29 +28,18 @@
                                     <th>Email</th>
                                     <th>Désactiver Le Compte</th>
                                     <th>L'historique du compte</th>
-                                    <th>Supprimer</th>
+<!--                                    <th>Supprimer</th>-->
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr th:each="appr:${listApprenant}">
-                                    <td>
-
-                                        <p th:each="user:${listUsers}" th:if="(${user.iduser} == ${appr.iduser})" th:text="${appr.nom}"></p>
-                                    </td>
-                                    <td>
-
-                                        <p th:each="user:${listUsers}" th:if="(${user.iduser} == ${appr.iduser})" th:text="${appr.prenom}"></p>
-                                    </td>
-                                    <td>
-                                        <p th:each="user:${listUsers}" th:if="(${user.iduser} == ${appr.iduser})" th:text="${appr.cin}"></p>
-                                    </td>
-                                    <td>
-                                        <p th:each="user:${listUsers}" th:if="(${user.iduser} == ${appr.iduser})" th:text="${appr.email}"></p>
-                                    </td>
-
+                                    <td th:text="${appr.nom}"></td>
+                                    <td th:text="${appr.prenom}"></td>
+                                    <td th:text="${appr.cin}"></td>
+                                    <td th:text="${appr.email}"></td>
                                     <td><a th:href="@{/edit-Apprenant/{id}(id=${appr.getIduser()})}" class="btn btn-primary" th:if="${appr.status} == true" th:text="Désactiver"></a></td>
                                     <td><a th:href="@{/historique-Apprenant/{id}(id=${appr.getIduser()})}" class="btn btn-primary">Accéder à L'Historique</a></td>
-                                    <td><a th:href="@{/delete/{id}(id=${appr.getIduser()})}" class="btn btn-primary"><i class="icon-trash"></i></a></td>
+<!--                                    <td><a th:href="@{/delete/{id}(id=${appr.getIduser()})}" class="btn btn-primary"><i class="icon-trash"></i></a></td>-->
                                     </td>
                                 </tr>
                                 </tbody>

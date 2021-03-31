@@ -21,15 +21,6 @@ CREATE TABLE Users
     PRIMARY KEY (idUser),
 	FOREIGN KEY(idRole) REFERENCES Role(idRole) ON UPDATE CASCADE
 );
--- -- -- -- --  Admin Table
-
-CREATE TABLE Admin
-(
-    idAdmin BIGSERIAL ,
-    iduser bigint,
-    PRIMARY KEY (idAdmin),
-	FOREIGN KEY(idUser) REFERENCES Users(idUser) ON DELETE CASCADE
-);
 
 -- -- -- -- --  Apprenant Table
 
@@ -59,9 +50,9 @@ CREATE TABLE Reservation
     idReservation BIGSERIAL,
     currentdate timestamp,
     Status boolean,
-    idApprenant bigint,
+     iduser bigint,
 	idType bigint,
     PRIMARY KEY (idReservation),
-	FOREIGN KEY(idApprenant) REFERENCES Apprenant(idApprenant) ON UPDATE CASCADE,
+	FOREIGN KEY(idUser) REFERENCES Users(idUser) ON DELETE CASCADE,
 	FOREIGN KEY(idType) REFERENCES TypeReservation(idType) ON UPDATE CASCADE
 );
